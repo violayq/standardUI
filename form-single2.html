@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+    <link href="Content/bootstrap.min.css" rel="stylesheet"/>
+    <link href="Content/bootstrap-datetimepicker.min.css" rel="stylesheet"/>
+    <link href="css/coodo.bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/bootstrapValidator.min.css" rel="stylesheet"/>
+    <link href="Content/font-awesome.css" rel="stylesheet">
+    <link href="skin/white.css" rel="stylesheet">
+
+    <script src="Scripts/jquery-1.10.2.js"></script>
+    <script src="Scripts/bootstrap.js"></script>
+    <script src="Scripts/bootstrap-datetimepicker.min.js"></script>
+    <script src="js/bootstrap-datetimepicker.fr.js"></script>
+    <script src="Scripts/coodo.bootstrap.min.js"></script>
+    <script src="Scripts/bootstrapValidator.min.js"></script>
+    <script src="Scripts/coodo.bootstrapValidator.min.js"></script>
+<script type="text/javascript">
+    $(function() {
+        $('#register').autoComplete({
+            data: [
+                { id:'1', text: '北京' },
+                { id:'2', text: '上海' },
+                { id:'3', text: '河南' },
+                { id:'4', text: '陕西' },
+                { id:'5', text: '云南' },
+                { id:'6', text: '湖北' },
+                { id:'7', text: '山东' }]
+        });
+
+        $('#birthday').datetimepicker({
+            language:  'fr',
+            todayBtn:  1,
+            autoclose: 1,
+            minView: 2,
+            forceParse: 0
+        });
+
+        $('#form1').notEmpty(['name', 'register', 'address']);
+    });
+</script>
+</head>
+<body class="page-content">
+<form id="form1" class="form-horizontal form-custom">
+        <div class="form-group">
+            <label class="col-md-2 control-label"><span class="required" />姓名：</label>
+            <div class="col-md-4">
+                <input type="text" class="form-control" name="name" placeholder="姓名"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-2 control-label"><span class="required" />户籍：</label>
+            <div class="col-md-4">
+                <input id="register" class="form-control" name="register" placeholder="户籍"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-2 control-label">出生日期：</label>
+            <div class="col-md-4">
+                <div class="input-group date" id="birthday" data-date-format="yyyy-mm-dd">
+                    <input class="form-control date-custom" name="birthday" placeholder="出生日期" readonly/>
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-time"></span></span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-2 control-label"><span class="required" />住址：</label>
+            <div class="col-md-4">
+                <input type="text" class="form-control" name="address" placeholder="住址"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-2 control-label">E-mail：</label>
+            <div class="col-md-4">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="E-mail"/>
+                    <span class="input-group-addon">@pcitc.com</span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-2 control-label">文本框组：</label>
+            <div class="col-md-4">
+                <div class="input-group">
+                    <span class="input-group-addon">$</span>
+                    <input type="text" class="form-control">
+                    <span class="input-group-addon">.00</span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-2 control-label">联系方式：</label>
+            <div class="col-md-4">
+                <div class="input-group">
+                    <input type="text" class="form-control" placeholder="联系方式"/>
+                <span class="input-group-btn">
+                    <button type="button" class="btn btn-default">查找</button>
+                </span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-2 control-label">导入：</label>
+            <div class="col-md-4">
+                <input type="file"/>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-2 control-label">部门：</label>
+            <div class="col-md-10">
+                <select class="coodo-selectPicker">
+                    <option selected>销售</option>
+                    <option>市场</option>
+                    <option>公关</option>
+                    <option>财务</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-2 control-label">性别：</label>
+            <div class="col-md-10">
+                <div class="radio">
+                    <label><input type="radio" name="sex" checked>男</label>
+                </div>
+                <div class="radio">
+                    <label><input type="radio"  name="sex">女</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-2 control-label">单选(内联样式)：</label>
+            <div class="col-md-10">
+                <div class="radio-inline">
+                    <label><input type="radio" name="sex2" checked>选项1</label>
+                </div>
+                <div class="radio-inline">
+                    <label><input type="radio" name="sex2">选项2</label>
+                </div>
+                <div class="radio-inline">
+                    <label><input type="radio" name="sex2" disabled>选项3</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-2 control-label">工作地点：</label>
+            <div class="col-md-10">
+                <div class="checkbox">
+                    <label><input type="checkbox" name="city">北京</label>
+                </div>
+                <div class="checkbox">
+                    <label><input type="checkbox" name="city">上海</label>
+                </div>
+                <div class="checkbox">
+                    <label><input type="checkbox" name="city">广州</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-2 control-label">多选(内联样式)：</label>
+            <div class="col-md-10">
+                <div class="checkbox-inline">
+                    <label><input type="checkbox" name="city2">选项1</label>
+                </div>
+                <div class="checkbox-inline">
+                    <label><input type="checkbox" name="city2">选项2</label>
+                </div>
+                <div class="checkbox-inline">
+                    <label><input type="checkbox" name="city2" disabled>选项3</label>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-2 control-label">描述：</label>
+            <div class="col-md-6">
+                <textarea class="form-control"></textarea>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-2"></label>
+            <div class="col-md-10 form-tool">
+                <button type="submit" class="btn btn-blue">提交</button>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

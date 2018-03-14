@@ -1,0 +1,15 @@
+﻿{
+    "total": "68",
+    "rows": [
+        { "id": 11, "age": 18, "name": "小一", "department": "销售","remark":""},
+        { "id": 12, "age": 18, "name": "豆豆", "department": "市场","remark":""},
+        { "id": 13, "age": 18, "name": "豆豆", "department": "市场","remark":""},
+        { "id": 14, "age": 18, "name": "豆豆", "department": "市场","remark":""},
+        { "id": 15, "age": 18, "name": "赵", "department": "公关","remark":""},
+        { "id": 16, "age": 18, "name": "赵", "department": "公关","remark":""},
+        { "id": 17, "age": 18, "name": "赵", "department": "公关","remark":""},
+        { "id": 18, "age": 18, "name": "赵", "department": "公关","remark":""},
+        { "id": 19, "age": 18, "name": "赵", "department": "公关","remark":""},
+        { "id": 20, "age": 18, "name": "赵", "department": "公关","remark":""}
+    ]
+}

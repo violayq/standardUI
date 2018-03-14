@@ -1,0 +1,73 @@
+<div class="searchBody">
+<script type="text/javascript">
+    $(function () {
+        $('#search_tree2').treeView({
+            url: 'data/treeData.json',
+            onSelect: function (node) {
+                $('#search_tab2').grid('load');
+            }
+        });
+
+        $('#search_tab2').grid({
+            idField: 'id',
+            url: 'data/gridData.json',
+            singleSelect: true,
+            pagination: true,
+            columns: [
+                {field: 'name', title: '名称', width: 100},
+                {field: 'age', title: '年龄', width: 60, align: 'center'},
+                {field: 'department', title: '部门', width: 140},
+                {field: 'remark', title: '描述'},
+                {
+                    field: '_cz',
+                    title: '操作',
+                    width: 100,
+                    align: 'center',
+                    formatter: function (value, rowData, rowIndex) {
+                        return '<a href="javascript:void(0);" onclick="alert(\'edit\')">编辑</a>&nbsp;|&nbsp;<a href="javascript:void(0);" onclick="alert(\'del\')">删除</a>';
+                    }
+                }
+            ]
+        });
+
+        $('.searchBody').layout({border:false});
+    });
+
+    function add() {
+        $.dialog.create({id: 'abc', title: '添加', url: 'save.html'}).dialog('open');
+    }
+</script>
+<div region="west" style="width:180px">
+    <ul id="search_tree2" class="page-left"></ul>
+</div>
+<div region="center">
+    <div class="page-content">
+        <div class="custom-desc">
+            <div>查询2</div>
+            <div>页面相关描述</div>
+        </div>
+        <div class="search-area form-horizontal">
+            <div class="form-group">
+                <label class="col-md-1 control-label">ID：</label>
+                <div class="col-md-3">
+                    <input class="form-control" placeholder="ID">
+                </div>
+                <label class="col-md-1 control-label">名称：</label>
+                <div class="col-md-3">
+                    <input class="form-control" placeholder="名称">
+                </div>
+                <div class="col-md-3 search-tool">
+                    <button type="button" class="btn btn-blue">查询</button>
+                    <button type="button" class="btn btn-gray">重置</button>
+                </div>
+            </div>
+        </div>
+        <div class="toolBar">
+            <button type="button" class="btn btn-blue" onclick="add()">添加</button>
+            <button type="button" class="btn btn-yellow">编辑</button>
+            <button type="button" class="btn btn-red">删除</button>
+        </div>
+        <table id="search_tab2"></table>
+    </div>
+</div>
+</div>

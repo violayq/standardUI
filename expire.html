@@ -1,0 +1,21 @@
+<div class="error-info" style="max-width: 400px;margin-top:100px">
+    <h2>身份已过期</h2>
+    <h4>请重新登录</h4>
+    <h5><span id="sSecond">3</span>秒后将自动跳转至<a href="http://www.baidu.com">登录首页</a>~</h5>
+</div>
+<script>
+    $(function () {
+        setSecond(3);
+    });
+    function setSecond(i) {
+        $('#sSecond').html(i);
+        if (i)
+            setTimeout(function () {
+                setSecond(--i);
+            }, 1000);
+        else
+        {
+            //top.location.href="http://www.baidu.com";
+        }
+    }
+</script>

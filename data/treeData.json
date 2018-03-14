@@ -1,0 +1,28 @@
+﻿[
+  {
+    "id": 1,
+    "text": "A",
+    "expand": false,
+    "children": [
+      {
+        "id": 2,
+        "text": "B",
+        "expand": false,
+        "children": [
+          {
+            "id": 21,
+            "text": "B-1"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "text": "C"
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "text": "D"
+  }
+]

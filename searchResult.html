@@ -1,0 +1,56 @@
+<div class="page-content">
+    <script type="text/javascript">
+        $(function () {
+            $('#search_tab').grid({
+                idField: 'id',
+                url: 'data/gridData.json',
+                singleSelect: true,
+                pagination: true,
+                columns: [
+                    {field: 'name', title: '名称',width:100},
+                    {field: 'age', title: '年龄',width:60,align:'center'},
+                    {field: 'department', title: '部门',width:140},
+                    {field:'remark',title:'描述'},
+                    {
+                        field: '_cz',
+                        title: '操作',
+                        width: 100,
+                        align: 'center',
+                        formatter: function (value, rowData, rowIndex) {
+                            return '<a href="javascript:void(0);" onclick="alert(\'edit\')">编辑</a>&nbsp;|&nbsp;<a href="javascript:void(0);" onclick="alert(\'del\')">删除</a>';
+                        }
+                    }
+                ]
+            });
+        });
+        function add() {
+            $.dialog.create({id: 'abc', title: '添加', url: 'save.html',maximizable:true}).dialog('open');
+        }
+    </script>
+    <div class="custom-desc">
+        <div>查询1</div>
+        <div>页面相关描述</div>
+    </div>
+    <div class="search-area form-horizontal">
+        <div class="form-group">
+            <label class="col-md-1 control-label">ID：</label>
+            <div class="col-md-3">
+                <input class="form-control" placeholder="ID">
+            </div>
+            <label class="col-md-1 control-label">名称：</label>
+            <div class="col-md-3">
+                <input class="form-control" placeholder="名称">
+            </div>
+            <div class="col-md-4 search-tool">
+                <button type="button" class="btn btn-blue"><i class="glyphicon glyphicon-search"></i>查询</button>
+                <button type="button" class="btn btn-gray"><i class="glyphicon glyphicon-share-alt"></i>重置</button>
+            </div>
+        </div>
+    </div>
+    <div class="toolBar">
+        <button type="button" class="btn btn-green" onclick="add()"><i class="glyphicon glyphicon-plus"></i>添加</button>
+        <button type="button" class="btn btn-yellow"><i class="glyphicon glyphicon-pencil"></i>编辑</button>
+        <button type="button" class="btn btn-red"><i class="glyphicon glyphicon-trash"></i>删除</button>
+    </div>
+    <table id="search_tab"></table>
+</div>

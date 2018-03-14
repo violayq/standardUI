@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>查询</title>
+    <link href="Content/bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/coodo.bootstrap.min.css" rel="stylesheet"/>
+    <link href="css/bootstrapValidator.min.css" rel="stylesheet"/>
+    <link href="skin/white.css" rel="stylesheet">
+
+    <script src="Scripts/jquery-1.10.2.js"></script>
+    <script src="Scripts/bootstrap.js"></script>
+    <script src="Scripts/coodo.bootstrap.min.js"></script>
+    <script src="Scripts/bootstrapValidator.min.js"></script>
+    <script src="Scripts/coodo.bootstrapValidator.min.js"></script>
+    <script src="js/common.js"></script>
+    <script type="text/javascript">
+        $(function () {
+            $('#search_tab').grid({
+                idField: 'id',
+                url: 'data/gridData.json',
+                singleSelect: true,
+                pagination: true,
+                columns: [
+                    {field: 'name', title: '名称',width:100},
+                    {field: 'age', title: '年龄',width:60,align:'center'},
+                    {field: 'department', title: '部门',width:140},
+                    {field:'remark',title:'描述'},
+                    {
+                        field: '_cz',
+                        title: '操作',
+                        width: 100,
+                        align: 'center',
+                        formatter: function (value, rowData, rowIndex) {
+                            return '<a href="javascript:void(0);" onclick="alert(\'edit\')">编辑</a>&nbsp;|&nbsp;<a href="javascript:void(0);" onclick="alert(\'del\')">删除</a>';
+                        }
+                    }
+                ]
+            });
+
+            $('.btn-addTabs').click(function(){
+                var param = {
+                    closable: true,
+                    title: '测试',
+                    content: 'searchResult3.html'
+                };
+                openForTabs(param);
+            });
+            $('.btn-redirect').click(function(){
+                redirect('form-single2.html');
+            });
+        });
+        function add() {
+            $.dialog.create({id: 'abc', title: '添加', url: 'save.html'}).dialog('open');
+        }
+    </script>
+</head>
+<body class="page-content">
+<div class="search-area form-horizontal">
+    <div class="form-group">
+        <label class="col-md-1 control-label">ID：</label>
+        <div class="col-md-3">
+            <input class="form-control" placeholder="请输入ID...">
+        </div>
+        <label class="col-md-1 control-label">名称：</label>
+        <div class="col-md-3">
+            <input class="form-control" placeholder="请输入名称...">
+        </div>
+        <div class="col-md-3 search-tool">
+            <button type="button" class="btn btn-blue">查询</button>
+            <button type="button" class="btn btn-gray">重置</button>
+        </div>
+    </div>
+</div>
+<div class="toolBar">
+    <button type="button" class="btn btn-blue" onclick="add()">添加</button>
+    <button type="button" class="btn btn-yellow">编辑</button>
+    <button type="button" class="btn btn-red">删除</button>
+    <button type="button" class="btn btn-red btn-redirect">页面跳转</button>
+    <button type="button" class="btn btn-red btn-addTabs">打开新tabs页</button>
+</div>
+<table id="search_tab"></table>
+</body>
+</html>

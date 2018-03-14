@@ -1,0 +1,51 @@
+<script type="text/javascript">
+    $(function () {
+        $('#save').notEmpty(['name', 'age', 'address', 'phonenumber']);
+        $('#btnSubmit').click(function () {
+            $('#save').valid();
+        });
+    });
+</script>
+<form id="save" class="form-horizontal form-custom">
+    <div class="form-group">
+        <label class="col-md-2 control-label">名称：</label>
+        <div class="col-md-4">
+            <input type="text" class="form-control" name="name"/>
+        </div>
+        <label class="col-md-2 control-label">年龄：</label>
+        <div class="col-md-4">
+            <input type="text" class="form-control" name="age"/>
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-2 control-label">住址：</label>
+        <div class="col-md-4">
+            <input type="text" class="form-control" name="address"/>
+        </div>
+        <label class="col-md-2 control-label">联系方式：</label>
+        <div class="col-md-4">
+            <input type="text" class="form-control" name="phonenumber">
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-2 control-label">类别：</label>
+        <div class="col-md-4">
+            <select class="coodo-selectPicker" data-options="search:true">
+                <option>A</option>
+                <option>B</option>
+                <option>C</option>
+                <option>D</option>
+                <option>E</option>
+                <option>F</option>
+                <option>G</option>
+                <option>H</option>
+                <option>I</option>
+                <option>J</option>
+            </select>
+        </div>
+    </div>
+</form>
+<div class="coodo-dialog-toolbar">
+    <button id="btnSubmit" class="btn btn-blue">保存</button>
+    <button class="btn btn-default" data-dismiss="modal">取消</button>
+</div>
